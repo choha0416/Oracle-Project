@@ -48,7 +48,13 @@ public class UserLogInOut {
 			pstmt.close();
 		}catch(SQLException e) {
 			e.printStackTrace();
-		} 
+		} finally {
+			if(conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {}
+			}
+		}
 		
 		System.out.println(us.getUserId());
 		um.userMn();
@@ -66,7 +72,13 @@ public class UserLogInOut {
 			//로그아웃관련 코드 입력할것
 		}catch(SQLException e) {
 			e.printStackTrace();
-		} 
+		} finally {
+			if(conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {}
+			}
+		}
 		
 		System.out.println(us.getUserId());
 		um.userMn();
