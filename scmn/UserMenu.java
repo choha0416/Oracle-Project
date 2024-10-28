@@ -5,16 +5,14 @@ public class UserMenu {
 	
 	private String userid;
 	private String userpassword;	
-	private String username;
-	private int userage;
-	private int usergrade;
-	User us = new User(userid,userpassword,username,userage,usergrade);
+
+	User us = new User(userid,userpassword);
 	UserInsert usi = new UserInsert();
 	UserUpdate usu = new UserUpdate();
 	UserDelete usd = new UserDelete();
 	Scanner scanner = new Scanner(System.in);
 	public void userMn() {
-		
+
 		System.out.println(us.getUserId());
 		
 		System.out.print("1.회원가입|2.회원정보 수정|3.회원탈퇴");

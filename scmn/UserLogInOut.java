@@ -1,17 +1,16 @@
 package scmn;
 
-import java.io.*;
-import java.sql.*;
 import java.util.*;
-public class UserLogin {
+import java.sql.*;
+import java.io.*;
+
+public class UserLogInOut {
 	UserMenu um = new UserMenu();
 	Scanner scanner = new Scanner(System.in);
 	private String userid;
 	private String userpassword;
-	
 	User us = new User(userid,userpassword);
-	
-	public void userLg() {
+	public void userLgI() {
 		Connection conn = null;
 		try {
 			conn = DriverManager.getConnection(
@@ -54,8 +53,27 @@ public class UserLogin {
 		System.out.println(us.getUserId());
 		um.userMn();
 	}
+	
+	public void userLgO() {
+		Connection conn = null;
+		try {
+			conn = DriverManager.getConnection(
+					"jdbc:oracle:thin:@localhost:1521/xe",
+					"system",
+					"oracle"
+			);
+			
+			//로그아웃관련 코드 입력할것
+		}catch(SQLException e) {
+			e.printStackTrace();
+		} 
+		
+		System.out.println(us.getUserId());
+		um.userMn();
+	}
 
 }
 // 관리자와 학생은 학년으로 구분하고싶음학년은 1~4입력가능 or 정해놓은 5자리 수 하나만 입력가능
 // 로그인할때 아이디와 비밀번호를 비교하고 그에따른 학년을 가져와서 1~4일경우 학생로그인
 // 정해놓은 수 일경우 관리자 로그인
+// 이곳에서 로그인하고 이동하는 모든페이지에서는 로그인된 id와 학년값을 가지고 이동 비밀번호는 필요x

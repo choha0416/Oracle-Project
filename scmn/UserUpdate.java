@@ -55,7 +55,7 @@ public class UserUpdate {
 			pstmt1.setInt(3,us.getUserAge());
 			pstmt1.setInt(4,us.getUserGrade());
 			pstmt1.setString(5,usidu);
-			//pstmt1.setString(5,uspwu);
+
 			pstmt1.executeUpdate();
 			
 		
