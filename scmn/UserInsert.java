@@ -5,6 +5,7 @@ import java.sql.*;
 import java.io.*;
 
 public class UserInsert {
+	
 	private String userid;
 	private String userpassword;
 	Scanner scanner = new Scanner(System.in);

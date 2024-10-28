@@ -4,10 +4,13 @@ import java.io.*;
 import java.sql.*;
 import java.util.*;
 public class UserLogin {
+	UserMenu um = new UserMenu();
 	Scanner scanner = new Scanner(System.in);
 	private String userid;
 	private String userpassword;
+	
 	User us = new User(userid,userpassword);
+	
 	public void userLg() {
 		Connection conn = null;
 		try {
@@ -33,26 +36,23 @@ public class UserLogin {
 			while(rs.next()) {
 				us.setUserId(rs.getString("userid"));
 				us.setUserPassword(rs.getString("userpassword"));
-				
-				System.out.println(us);
-				
-				if(usid.equals(us.getUserId())) {
-					if(uspw.equals(us.getUserPassword())) {
-						System.out.println("로그인 성공");
-						//break;
-					} else {
-						System.out.println("비밀번호가 틀렸습니다");
-					}
-				} else {
-					System.out.println("아이디가 틀렸습니다");
-				}
-			
-			}
 
+				System.out.println(us);
+				if(us.getUserId().equals(usid)) {
+					System.out.println("1");
+					
+					break;
+				}else {System.out.println("2");}
+			}
+			System.out.println(us.getUserId());
 			rs.close();
 			pstmt.close();
 		}catch(SQLException e) {
 			e.printStackTrace();
 		} 
+		
+		System.out.println(us.getUserId());
+		um.userMn();
 	}
+
 }

@@ -6,8 +6,10 @@ public class MainApp {
 		// TODO Auto-generated method stub
 		//UserInsert usIs = new UserInsert();
 		//usIs.insertU();
-		UserLogin usLg = new UserLogin();
-		usLg.userLg();
+		//UserLogin usLg = new UserLogin();
+		//usLg.userLg();
+		MainMenu mm = new MainMenu();
+		mm.mainMn();
 	}
 
 }
