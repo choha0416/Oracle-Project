@@ -2,14 +2,16 @@ package scmn;
 
 public class Score {
     private String userId;
+    private int userGrade;
     private double subject1;
     private double subject2;
     private double subject3;
     private double subject4;
     private double averageScore;
 
-    public Score(String userId, double subject1, double subject2, double subject3, double subject4, double averageScore) {
+    public Score(String userId, int userGrade , double subject1, double subject2, double subject3, double subject4, double averageScore) {
         this.userId = userId;
+        this.userGrade = userGrade;
         this.subject1 = subject1;
         this.subject2 = subject2;
         this.subject3 = subject3;
@@ -24,6 +26,16 @@ public class Score {
     public void setUserId(String userId) {
         this.userId = userId;
     }
+    
+    public int getUserGrade() {
+		return userGrade;
+	}
+
+	public void setUserGrade(int userGrade) {
+		this.userGrade = userGrade;
+	}
+
+	
 
     public double getSubject1() {
         return subject1;
@@ -66,14 +78,9 @@ public class Score {
     }
 
     @Override
-    public String toString() {
-        return "Score{" +
-                "userId='" + userId + '\'' +
-                ", subject1=" + subject1 +
-                ", subject2=" + subject2 +
-                ", subject3=" + subject3 +
-                ", subject4=" + subject4 +
-                ", averageScore=" + averageScore +
-                '}';
-    }
+	public String toString() {
+		return "Score [userId=" + userId + ", userGrade=" + userGrade + ", subject1=" + subject1 + ", subject2="
+				+ subject2 + ", subject3=" + subject3 + ", subject4=" + subject4 + ", averageScore=" + averageScore
+				+ "]";
+	}
 }

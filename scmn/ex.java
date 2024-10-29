@@ -25,8 +25,10 @@ public class ScoreInsert {
                     "system",
                     "oracle"
             );
+            User us = ulio.userLgI();
 
-
+            System.out.println(us.getUserGrade());
+            if(us.getUserGrade()==12345) {
             	System.out.println("성적을 입력합니다");
             	
             	System.out.print("성적을 입력할 학생의 아이디를 입력해주세요");
@@ -118,10 +120,11 @@ public class ScoreInsert {
             	pstmt.executeUpdate();
             	pstmt.close();
             	
-           
+            } else {
+            	System.out.println("접근권한이 없습니다");
             	 MainMenu mm = new MainMenu(); // MainMenu 객체 생성
                  mm.mainMn(); // MainMenu 실행
-          
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {

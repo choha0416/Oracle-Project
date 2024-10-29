@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class UserLogInOut {
     private User us; // 로그인된 사용자 정보
     private Scanner scanner = new Scanner(System.in);
-
+    UserMenu userMenu = new UserMenu(); 
     public User userLgI() {
         Connection conn = null;
         try {
@@ -42,6 +42,7 @@ public class UserLogInOut {
                 }
             } else {
                 System.out.println("로그인 실패: 아이디 또는 비밀번호가 잘못되었습니다.");
+                userLgI();
             }
 
             rs.close();
@@ -60,7 +61,7 @@ public class UserLogInOut {
 
         return us; // 로그인된 User 객체 반환
     }
-
+    
     public void userLgO() {
         // 로그아웃 로직 구현
         us = null; // 로그인된 사용자 정보 초기화
