@@ -121,9 +121,33 @@ public class ScoreUpdate {
 	            	
 	            	String sql = new StringBuilder()
 	            			.append("UPDATE scores SET ")
-	            			.append("")
+	            			.append("user_grade=?, ")
+	            			.append("subject1_grade=?, ")
+	            			.append("subject2_grade=?, ")
+	            			.append("subject3_grade=?, ")
+	            			.append("subject4_grade=?, ")
+	            			.append("average_score=? ")
+	            			.append("WHERE user_id=?")
 	            			.toString();
-	           
+	            	PreparedStatement pstmt = conn.prepareStatement(sql);
+	            	pstmt.setInt(1, score.getUserGrade());
+	            	pstmt.setDouble(2, score.getSubject1());
+	            	pstmt.setDouble(3, score.getSubject2());
+	            	pstmt.setDouble(4, score.getSubject3());
+	            	pstmt.setDouble(5, score.getSubject4());
+	            	pstmt.setDouble(6, score.getAverageScore());
+	            	pstmt.setString(7, score.getUserId());
+	            	
+	            	pstmt.executeUpdate();
+	            	System.out.println("수정 완료하였습니다");
+	            	System.out.println("변경된 학년: "+score.getUserGrade());
+	            	System.out.println("변경된 과목1성적: "+score.getSubject1());
+	            	System.out.println("변경된 과목2성적: "+score.getSubject2());
+	            	System.out.println("변경된 과목3성적: "+score.getSubject3());
+	            	System.out.println("변경된 과목4성적: "+score.getSubject4());
+	            	System.out.println("변경된 평균총점: "+score.getAverageScore());
+	            	
+	            	pstmt.close();
 	            	 MainMenu mm = new MainMenu(); // MainMenu 객체 생성
 	                 mm.mainMn(); // MainMenu 실행
 	          
