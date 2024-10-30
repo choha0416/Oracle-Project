@@ -6,6 +6,7 @@ public class MainMenu {
     Scanner scanner = new Scanner(System.in);
     UserMenu userMenu = new UserMenu(); // UserMenu 객체 생성
     StudentScManagement ss = new StudentScManagement();
+    StudentSc ssc = new StudentSc();
     public void mainMn() {
         while (true) {
             System.out.println("1.학생 성적확인|2.교수 성적입력|3.회원메뉴|4.종료");
@@ -14,7 +15,7 @@ public class MainMenu {
             switch (cho) {
                 case "1":
                     System.out.println("학생 성적 확인시스템으로 이동합니다");
-                    // 성적 확인 로직 호출
+                    ssc.stuScLi();
                     break;
 
                 case "2":

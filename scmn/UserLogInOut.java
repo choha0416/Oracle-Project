@@ -34,7 +34,7 @@ public class UserLogInOut {
 
                 us = new User(userId, userPassword); // User 객체 생성
                 us.setUserGrade(userGrade); // 학년 설정
-
+                us.setUserId(userId);
                 if (userGrade >= 1 && userGrade <= 4) {
                     System.out.println("학생으로 로그인했습니다.");
                 } else if (userGrade == 12345) {

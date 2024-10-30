@@ -79,8 +79,8 @@ public class Score {
 
     @Override
 	public String toString() {
-		return "Score [userId=" + userId + ", userGrade=" + userGrade + ", subject1=" + subject1 + ", subject2="
-				+ subject2 + ", subject3=" + subject3 + ", subject4=" + subject4 + ", averageScore=" + averageScore
+		return "[학년: " + userGrade + " 과목1: " + subject1 + " 과목2: "
+				+ subject2 + " 과목3: " + subject3 + " 과목4: " + subject4 + " 총점평균: " + averageScore
 				+ "]";
 	}
 }
