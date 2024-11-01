@@ -1,10 +1,4 @@
-create table usersc(
-userid varchar(50) primary key,
-username varchar2 (100) not null,
-userpassword varchar2(50) not null,
-userage number(3) not null,
-usergrade number(5) not null
-);
+select * from usersc;
 
 CREATE TABLE scores (
     user_id VARCHAR2(50) PRIMARY KEY, -- 유저 ID를 기본 키로 설정
@@ -15,3 +9,13 @@ CREATE TABLE scores (
     subject4_grade VARCHAR2(50) NOT NULL, -- 네 번째 과목과 성적
     average_score NUMBER CHECK (average_score >= 0 AND average_score <= 4.5) -- 평균 점수
 );
+
+select * from scores;
+
+select *
+from scores
+order by user_grade asc,average_score desc;
+
+select user_id ,user_grade,subject1_grade,subject2_grade,subject3_grade,subject4_grade,average_score,
+rank() over (partition by user_grade order by average_score desc) as rank
+from scores;
