@@ -26,8 +26,26 @@ public class ScoreList {
 					"oracle"
 			);
 			String sql=""+
-			"SELECT "
-			
+			"SELECT user_id, user_grade, subject1_grade, subject2_grade, subject3_grade, subject4_grade, average_score,"
+			+ "RANK() OVER (PARTITION BY user_grade ORDER BY average_score DESC) AS rank "+
+			"FROM scores";
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				score.setUserId(rs.getString("user_id"));
+				score.setUserGrade(rs.getInt("user_grade"));
+				score.setSubject1(rs.getDouble("subject1_grade"));
+				score.setSubject2(rs.getDouble("subject2_grade"));
+				score.setSubject3(rs.getDouble("subject3_grade"));
+				score.setSubject4(rs.getDouble("subject4_grade"));
+				score.setAverageScore(rs.getDouble("average_score"));
+				score.setRank(rs.getInt("rank"));
+				System.out.println(score);
+			}
+			rs.close();
+			pstmt.close();
+			System.out.println();
+			System.out.println();
 					System.out.println();
 					System.out.println();
 					//mm.mainMn();

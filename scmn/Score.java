@@ -8,6 +8,7 @@ public class Score {
     private double subject3;
     private double subject4;
     private double averageScore;
+    private int rank;
 
     public Score(String userId, int userGrade , double subject1, double subject2, double subject3, double subject4, double averageScore) {
         this.userId = userId;
@@ -18,8 +19,30 @@ public class Score {
         this.subject4 = subject4;
         this.averageScore = averageScore;
     }
+    
+    
+    public Score(String userId, int userGrade , double subject1, double subject2, double subject3, double subject4, double averageScore, int rank) {
+        this.userId = userId;
+        this.userGrade = userGrade;
+        this.subject1 = subject1;
+        this.subject2 = subject2;
+        this.subject3 = subject3;
+        this.subject4 = subject4;
+        this.averageScore = averageScore;
+    }
+    
 
-    public String getUserId() {
+    public int getRank() {
+		return rank;
+	}
+
+
+	public void setRank(int rank) {
+		this.rank = rank;
+	}
+
+
+	public String getUserId() {
         return userId;
     }
 
@@ -79,8 +102,15 @@ public class Score {
 
     @Override
 	public String toString() {
-		return "[학년: " + userGrade + " 과목1: " + subject1 + " 과목2: "
-				+ subject2 + " 과목3: " + subject3 + " 과목4: " + subject4 + " 총점평균: " + averageScore
-				+ "]";
+		return "[아이디: "+userId+"  학년: " + userGrade + "  과목1: " + subject1 + "  과목2: "
+				+ subject2 + "  과목3: " + subject3 + "  과목4: " + subject4 + "  총점평균: " + averageScore+"  등수: "+rank+"]"
+				;
 	}
+    
+	public String toString1() {
+		return "[학년: " + userGrade + "  과목1: " + subject1 + "  과목2: "
+				+ subject2 + "  과목3: " + subject3 + "  과목4: " + subject4 + "  총점평균: " + averageScore+"  등수: "+rank+"]"
+				;
+	}
+
 }

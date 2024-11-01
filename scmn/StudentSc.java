@@ -51,7 +51,7 @@ public class StudentSc {
 						System.out.println(userId+"님의 성적입니다");
 						System.out.println();
 						System.out.println("-----------------------------------------------------------------");
-						System.out.println(score);
+						System.out.println(score.toString1());
 						System.out.println("-----------------------------------------------------------------");
 					}
 
